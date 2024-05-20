@@ -1,2 +1,2 @@
 # db-playground
-Environment to play with multiple DBMS
+Environment to play with MySQL

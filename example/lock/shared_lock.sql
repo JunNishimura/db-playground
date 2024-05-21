@@ -16,6 +16,13 @@ SELECT * FROM performance_schema.data_locks\G
 ROLLBACK;
 
 -- [Test3]
+-- check to see if non-indexed column is not locked
+BEGIN;
+SELECT age FROM users WHERE age = 20 FOR SHARE;
+SELECT * FROM performance_schema.data_locks\G
+ROLLBACK;
+
+-- [Test4]
 -- check to see if two transactions are trying to acquire a shared lock on the same row
 -- Transaction 1
 BEGIN;
